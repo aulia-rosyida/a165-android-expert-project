@@ -8,26 +8,15 @@ import com.dicoding.tourismapp.core.data.source.remote.RemoteDataSource
 import com.dicoding.tourismapp.core.data.source.remote.response.TourismResponse
 import com.dicoding.tourismapp.core.utils.AppExecutors
 import com.dicoding.tourismapp.core.utils.DataMapper
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class TourismRepository private constructor(
+@Singleton
+class TourismRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) {
-
-    companion object {
-        @Volatile
-        private var instance: TourismRepository? = null
-
-        fun getInstance(
-            remoteData: RemoteDataSource,
-            localData: LocalDataSource,
-            appExecutors: AppExecutors
-        ): TourismRepository =
-            instance ?: synchronized(this) {
-                instance ?: TourismRepository(remoteData, localData, appExecutors)
-            }
-    }
 
     fun getAllTourism(): LiveData<Resource<List<TourismEntity>>> =
         object : NetworkBoundResource<List<TourismEntity>, List<TourismResponse>>(appExecutors) {
