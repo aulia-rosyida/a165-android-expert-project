@@ -5,12 +5,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.dicoding.tourismapp.MyApplication
 import com.dicoding.tourismapp.R
 import com.dicoding.tourismapp.core.domain.model.Tourism
-import com.dicoding.tourismapp.core.ui.ViewModelFactory
 import com.dicoding.tourismapp.databinding.ActivityDetailTourismBinding
-import javax.inject.Inject
 
 /** buka masing-masing Fragment dan Activity untuk menambahkan annotation @AndroidEntryPoint
  * dan mengganti beberapa kode yang berkaitan dengan Dagger dengan kode untuk Hilt:*/
