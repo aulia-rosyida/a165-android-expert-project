@@ -12,4 +12,3 @@ class DetailTourismViewModel @Inject constructor(private val tourismUseCase: Tou
         tourismUseCase.setFavoriteTourism(tourism, newStatus)
 }
 
-/** Studi kasus dagger MultiBindings pada aplikasi */
