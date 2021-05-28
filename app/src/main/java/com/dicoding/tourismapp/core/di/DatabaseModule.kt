@@ -6,15 +6,19 @@ import com.dicoding.tourismapp.core.data.source.local.room.TourismDao
 import com.dicoding.tourismapp.core.data.source.local.room.TourismDatabase
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 /** Tambahkan kode berikut yang sebelumnya berada di TourismDatabase. */
 @Module
+@InstallIn(SingletonComponent::class)
 class DatabaseModule {
 
     @Singleton
-    @Provides
-    fun provideDatabase(context: Context): TourismDatabase = Room.databaseBuilder(
+    @Provides           //Khusus pada DatabaseModule Anda juga menambahkan @ApplicationContext untuk mendapatkan context.
+    fun provideDatabase(@ApplicationContext context: Context): TourismDatabase = Room.databaseBuilder(
         context,
         TourismDatabase::class.java, "Tourism.db"
     ).fallbackToDestructiveMigration().build()

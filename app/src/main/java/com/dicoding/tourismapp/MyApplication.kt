@@ -5,15 +5,11 @@ import com.dicoding.tourismapp.di.AppComponent
 import com.dicoding.tourismapp.core.di.CoreComponent
 import com.dicoding.tourismapp.core.di.DaggerCoreComponent
 import com.dicoding.tourismapp.di.DaggerAppComponent
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 open class MyApplication : Application() {
 
-    private val coreComponent: CoreComponent by lazy {
-        DaggerCoreComponent.factory().create(applicationContext)
-    }
-
-    val appComponent: AppComponent by lazy {
-        DaggerAppComponent.factory().create(coreComponent)
-    }
+    /**  menghapus kode untuk inject Component karena Anda sudah tidak menggunakannya lagi. */
 }
 
