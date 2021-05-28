@@ -1,4 +1,4 @@
-    package com.dicoding.tourismapp.core.ui
+package com.dicoding.tourismapp.core.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -11,7 +11,20 @@ import javax.inject.Inject
 
 @AppScope
 class ViewModelFactory @Inject constructor(private val tourismUseCase: TourismUseCase) :
-        ViewModelProvider.NewInstanceFactory() {
+    ViewModelProvider.NewInstanceFactory() {
+
+//    hapus kode berikut
+//    companion object {
+//        @Volatile
+//        private var instance: ViewModelFactory? = null
+//
+//        fun getInstance(context: Context): ViewModelFactory =
+//            instance ?: synchronized(this) {
+//                instance ?: ViewModelFactory(
+//                    Injection.provideTourismUseCase(context)
+//                )
+//            }
+//    }
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
