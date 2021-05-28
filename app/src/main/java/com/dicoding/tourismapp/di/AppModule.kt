@@ -10,7 +10,7 @@ import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(ViewModelComponent::class) //mengapa pada AppModule menggunakan ViewModelComponent? karena Anda menggunakan Module di level ViewModel saja, sehingga yang digunakan adalah ViewModelComponent yang sudah disediakan Hilt.
 abstract class AppModule {
 
     @Binds

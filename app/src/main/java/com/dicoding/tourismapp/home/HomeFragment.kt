@@ -15,9 +15,14 @@ import com.dicoding.tourismapp.databinding.FragmentHomeBinding
 import com.dicoding.tourismapp.detail.DetailTourismActivity
 import dagger.hilt.android.AndroidEntryPoint
 
+/** Perhatikan bahwa di sini Anda sudah tidak menggunakan ViewModelFactory lagi karena semuanya sudah diatur oleh Hilt.
+ * Mantap! Yang perlu Anda lakukan hanyalah menambahkan anotasi @AndroidEntryPoint pada setiap Activity dan Fragment yang membutuhkan injection.
+ * Sebagai catatan jika Anda menambahkan pada Fragment, maka pada Activity yang menaunginya juga harus diberikan anotasi tersebut juga.*/
+
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
+    // untuk menggunakannya Anda cukup menggunakan property delegate dari Activity KTX yaitu by viewModels() seperti berikut:
     private val homeViewModel: HomeViewModel by viewModels()
 
     private var _binding: FragmentHomeBinding? = null
