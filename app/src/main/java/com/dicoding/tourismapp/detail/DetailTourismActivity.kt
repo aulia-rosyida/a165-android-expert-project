@@ -8,9 +8,9 @@ import com.bumptech.glide.Glide
 import com.dicoding.tourismapp.R
 import com.dicoding.tourismapp.core.domain.model.Tourism
 import com.dicoding.tourismapp.databinding.ActivityDetailTourismBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-/** buka masing-masing Fragment dan Activity untuk menambahkan annotation @AndroidEntryPoint
- * dan mengganti beberapa kode yang berkaitan dengan Dagger dengan kode untuk Hilt:*/
+@AndroidEntryPoint
 class DetailTourismActivity : AppCompatActivity() {
 
     companion object {
@@ -22,12 +22,13 @@ class DetailTourismActivity : AppCompatActivity() {
     private val detailTourismViewModel: DetailTourismViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         binding = ActivityDetailTourismBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+//        hapus kode berikut
+//        val factory = ViewModelFactory.getInstance(this)
+//        detailTourismViewModel = ViewModelProvider(this, factory)[DetailTourismViewModel::class.java]
 
         val detailTourism = intent.getParcelableExtra<Tourism>(EXTRA_DATA)
         showDetailTourism(detailTourism)
