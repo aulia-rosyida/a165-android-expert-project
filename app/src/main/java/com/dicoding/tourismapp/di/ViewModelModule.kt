@@ -10,7 +10,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-/** Module khusus untuk ViewModel */
+/** Module khusus untuk ViewModel
+ * Dagger Multibinding dengan @IntoMap
+ * Anotasi tersebut digunakan untuk menandai ViewModel yang akan di-inject
+ * */
+
 @Suppress("unused")
 @Module
 abstract class ViewModelModule {

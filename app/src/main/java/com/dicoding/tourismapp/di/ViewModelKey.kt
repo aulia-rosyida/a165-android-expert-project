@@ -11,7 +11,8 @@ import kotlin.reflect.KClass
     AnnotationTarget.PROPERTY_GETTER,
     AnnotationTarget.PROPERTY_SETTER
 )
-@Retention(AnnotationRetention.RUNTIME)
 
+/**Untuk membuat Key Anda dapat membuat Custom Annotations dengan tipe @MapKey seperti berikut:*/
+@Retention(AnnotationRetention.RUNTIME)
 @MapKey
 annotation class ViewModelKey(val value: KClass<out ViewModel>)
