@@ -17,23 +17,8 @@ class TourismRepository(
     private val appExecutors: AppExecutors
 ) : ITourismRepository {
 
-//    hapus kode berikut
-//    companion object {
-//        @Volatile
-//        private var instance: TourismRepository? = null
-//
-//        fun getInstance(
-//            remoteData: RemoteDataSource,
-//            localData: LocalDataSource,
-//            appExecutors: AppExecutors
-//        ): TourismRepository =
-//            instance ?: synchronized(this) {
-//                instance ?: TourismRepository(remoteData, localData, appExecutors)
-//            }
-//    }
-
     override fun getAllTourism(): Flow<Resource<List<Tourism>>> =
-        object : NetworkBoundResource<List<Tourism>, List<TourismResponse>>() {
+        object : _root_ide_package_.com.dicoding.tourismapp.core.data.NetworkBoundResource<List<Tourism>, List<TourismResponse>>() {
             override fun loadFromDB(): Flow<List<Tourism>> {
                 return localDataSource.getAllTourism().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -64,4 +49,3 @@ class TourismRepository(
         appExecutors.diskIO().execute { localDataSource.setFavoriteTourism(tourismEntity, state) }
     }
 }
-
