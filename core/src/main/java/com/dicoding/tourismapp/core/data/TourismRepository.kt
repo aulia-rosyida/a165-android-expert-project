@@ -18,7 +18,7 @@ class TourismRepository(
 ) : ITourismRepository {
 
     override fun getAllTourism(): Flow<Resource<List<Tourism>>> =
-        object : _root_ide_package_.com.dicoding.tourismapp.core.data.NetworkBoundResource<List<Tourism>, List<TourismResponse>>() {
+        object : NetworkBoundResource<List<Tourism>, List<TourismResponse>>() {
             override fun loadFromDB(): Flow<List<Tourism>> {
                 return localDataSource.getAllTourism().map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -27,7 +27,7 @@ class TourismRepository(
 
             override fun shouldFetch(data: List<Tourism>?): Boolean =
 //                data == null || data.isEmpty()
-                 true // ganti dengan true jika ingin selalu mengambil data dari internet
+                true // ganti dengan true jika ingin selalu mengambil data dari internet
 
             override suspend fun createCall(): Flow<ApiResponse<List<TourismResponse>>> =
                 remoteDataSource.getAllTourism()
@@ -40,7 +40,7 @@ class TourismRepository(
 
     override fun getFavoriteTourism(): Flow<List<Tourism>> {
         return localDataSource.getFavoriteTourism().map {
-           DataMapper.mapEntitiesToDomain(it)
+            DataMapper.mapEntitiesToDomain(it)
         }
     }
 
