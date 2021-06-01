@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
 }
 
+// untuk memanggil file tersebut Anda cukup menggunakan kode seperti berikut pada build.gradle masing-masing module.
 apply from: '../shared_dependencies.gradle'
 
 android {

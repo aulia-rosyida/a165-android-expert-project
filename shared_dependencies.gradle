@@ -1,3 +1,4 @@
+//Untuk berbagi dependency di banyak module sekaligus, Anda membuat file shared_depencies.gradle
 dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.core:core-ktx:$core_ktx_version"
